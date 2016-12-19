@@ -1,6 +1,6 @@
 Styling:
     google fonts
-    gradient
-    nav title
-    home callout
-    nav bar fa icon
+    >gradient
+    >nav title
+    >home callout
+    >nav bar fa icon
