@@ -7,7 +7,7 @@ class GamesController < ApplicationController
       @game = Game.new( game_params )
       if @game.save
           flash[:success] = "Game started"
-          redirect_to root_path
+          redirect_to game_path(id: @game.id)
       else
           flash[:error] = "Game creation failed"
           render action: :new
@@ -16,6 +16,17 @@ class GamesController < ApplicationController
    
    def show
       @game = Game.find(params[:id]) 
+   end
+   
+   def update
+      @game = Game.find(params[:id])
+      if @game.update_attributes(game_params)
+          flash[:success] = "Game update successful"
+          render action: :show
+      else
+          flash[:error] = "Game update failed"
+          render action: :show
+      end
    end
    
    def destroy
