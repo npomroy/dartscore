@@ -20,6 +20,13 @@
                 
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="well">
+                <% if user_signed_in? %>
+                    <%= link_to "New Game", "#", class: "btn btn-primary btn-lg btn-block" %>
+                <% end %>
+            </div>
+        </div>
     </div>
     
 </div>
