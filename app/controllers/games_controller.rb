@@ -14,6 +14,11 @@ class GamesController < ApplicationController
       end
    end
    
+   def destroy
+      Game.find(params[:id]).destroy
+      redirect_to root_path
+   end
+   
    def index
       @games = Game.all 
    end
