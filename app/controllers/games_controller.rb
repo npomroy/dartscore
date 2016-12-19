@@ -14,6 +14,10 @@ class GamesController < ApplicationController
       end
    end
    
+   def index
+      @games = Game.all 
+   end
+   
    private
         def game_params
             params.require(:game).permit(:team1_score, :team1_shooting,
