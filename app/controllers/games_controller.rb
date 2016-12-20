@@ -4,7 +4,8 @@ class GamesController < ApplicationController
    end
    
    def editplayers
-      @players = Player.where("game_id = ?", params[:game_id])
+      @team1 = Player.where("game_id = ? AND on_team1 = ?", params[:game_id], true)
+      @team2 = Player.where("game_id = ? AND on_team1 = ?", params[:game_id], false)
    end
    
    def create

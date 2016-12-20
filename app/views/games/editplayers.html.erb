@@ -1,21 +1,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <% @players.each do |player| %>
-                <% if player.on_team1 %>
-                    <div class="well">
-                        <%= player.name %>
-                    </div>
-                <% end %>
+            <% @team1.each do |team1| %>
+                <div class="well">
+                    <%= team1.name %>
+                </div>
             <% end %>
         </div>
         <div class="col-md-6">
-            <% @players.each do |player| %>
-                <% if !player.on_team1 %>
-                    <div class="well">
-                        <%= player.name %>
-                    </div>
-                <% end %>
+            <% @team2.each do |team2| %>
+                <div class="well">
+                    <%= team2.name %>
+                </div>
             <% end %>
         </div>
     </div>
