@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219231608) do
+ActiveRecord::Schema.define(version: 20161220091005) do
 
   create_table "games", force: :cascade do |t|
     t.integer "team1_score"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161219231608) do
     t.string  "name"
     t.boolean "on_team1"
     t.boolean "is_away"
-    t.string  "record"
+    t.string  "gamestats"
     t.integer "best_shot"
   end
 

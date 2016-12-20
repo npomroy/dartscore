@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
    def new
-    #   @player = Player.new 
+    @player = Player.new 
    end
    
    def create
@@ -16,6 +16,6 @@ class PlayersController < ApplicationController
    
    private
         def player_params
-           params.require(:player).permit(:game_id, :name, :on_team1, :is_away, :record, :best_shot) 
+           params.require(:player).permit(:game_id, :name, :on_team1, :is_away, :gamestats, :best_shot) 
         end
 end
