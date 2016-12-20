@@ -8,6 +8,7 @@
                 <h4>Players:</h4>
                 <div class="row">
                     <div class="col-sm-6">
+                        
                         <h5>Team 1:</h5>
                         <% @team1.each do |player| %>
                             <div class="well">
@@ -16,6 +17,9 @@
                         <% end %>
                     </div>
                     <div class="col-sm-6">
+                        <% if !@game.team1_up %>
+                            <h4>Now shooting:</h4>
+                        <% end %>
                         <h5>Team 2:</h5>
                         <% @team2.each do |player| %>
                             <div class="well">
@@ -31,6 +35,12 @@
                         <%= f.check_box :team1_up %>
                         <%= f.submit :StartGame %>
                     <% end %>
+                <% else %>
+                    <% if @game.team1_up %>
+                        <h4>Now shooting: Team 1</h4>
+                    <% else %>
+                        <h4>Now shooting: Team 2</h4>
+                    <% end %>    
                 <% end %>
             </div>
         </div>
