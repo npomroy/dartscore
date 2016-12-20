@@ -4,6 +4,10 @@
         <%= f.text_field :name, class: "form-control" %>
     </div>
     <div class="field form-group">
+        <%= f.label :on_team1 %>
+        <%= f.check_box :on_team1, class: "form-control" %>
+    </div>
+    <div class="field form-group">
         <%= f.submit :Submit, class: "btn btn-primary" %>
     </div>
 <% end %>
