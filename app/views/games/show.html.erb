@@ -38,8 +38,13 @@
                         <%= f.submit :StartGame %>
                     <% end %>
                 <% else %>
+                    <h1>Team 1: <%= @game.team1_score %> ------- Score ------- Team 2: <%= @game.team2_score %></h1>
                     <% if @game.team1_up %>
-                        <h4>Now shooting: Team 1</h4>
+                        <h4>Now shooting for Team 1: <% @team1.each_with_index do |player, index| %>
+                            <% if index == @game.team1_shooting %>
+                                <%= player.name %>
+                            <% end %>
+                        <% end %></h4>
                     <% else %>
                         <h4>Now shooting: Team 2</h4>
                     <% end %>    
