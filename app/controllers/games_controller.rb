@@ -37,10 +37,10 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
       if @game.update_attributes(game_params)
           flash[:success] = "Game update successful"
-          render action: :show
+          redirect_to game_path(id: @game.id)
       else
           flash[:error] = "Game update failed"
-          render action: :show
+          redirect_to game_path(id: @game.id)
       end
    end
    

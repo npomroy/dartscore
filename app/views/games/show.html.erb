@@ -24,6 +24,14 @@
                         <% end %>
                     </div>
                 </div>
+                <% if !@game.playing %>
+                    <%= form_for @game do |f| %>
+                        <%= f.hidden_field :playing, :value => true %>
+                        <%= f.label "Team 1 goes first?" %>
+                        <%= f.check_box :team1_up %>
+                        <%= f.submit :StartGame %>
+                    <% end %>
+                <% end %>
             </div>
         </div>
     </div>
