@@ -11,9 +11,11 @@ class PlayersController < ApplicationController
        @game = Game.find(params[:game_id])
       @player = Player.new(player_params)
       @player.game_id = @game.id
+      @player.is_away = false
+      @player.best_shot = 0
       if @player.save
           flash[:success] = "Player created"
-          redirect_to game_player_path(id: @player.id)
+          redirect_to game_editplayers_path(game_id: @game.id)
       else
           flash[:error] = "Player creation failed"
           render action: :new
