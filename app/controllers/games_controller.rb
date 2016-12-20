@@ -3,6 +3,10 @@ class GamesController < ApplicationController
       @game = Game.new 
    end
    
+   def editplayers
+      @players = Player.where("game_id = ?", params[:game_id])
+   end
+   
    def create
       @game = Game.new( game_params )
       if @game.save

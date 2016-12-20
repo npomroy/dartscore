@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :games do
     resources :players
+    get "/editplayers", to: 'games#editplayers'
   end
   get 'about', to: 'pages#about'
 end
