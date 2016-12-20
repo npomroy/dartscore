@@ -21,7 +21,8 @@ class GamesController < ApplicationController
    
    def show
       @game = Game.find(params[:id]) 
-      @players = Player.where("game_id = ?", @game.id)
+      @team1 = Player.where("game_id = ? AND on_team1 = ?", @game.id, true)
+      @team2 = Player.where("game_id = ? AND on_team1 = ?", @game.id, false)
    end
    
    def update
