@@ -10,6 +10,14 @@ class GamesController < ApplicationController
    
    def create
       @game = Game.new( game_params )
+      @game.team1_score = @game.starting_score
+      @game.team2_score = @game.starting_score
+      @game.team1_shooting = 0
+      @game.team2_shooting = 0
+      @game.team1_player_count = 0
+      @game.team2_player_count = 0
+      @game.team1_up = true
+      @game.playing = false
       if @game.save
           flash[:success] = "Game started"
           redirect_to game_path(id: @game.id)

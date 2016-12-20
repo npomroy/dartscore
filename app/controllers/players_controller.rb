@@ -39,7 +39,7 @@ class PlayersController < ApplicationController
    
    def destroy
       Player.find(params[:id]).destroy
-      redirect_to root_path
+      redirect_to game_editplayers_path(game_id: params[:game_id])
    end
    
    def index

@@ -4,9 +4,13 @@
             <div class="well">
                 <h2 class="text-center">New Game</h2>
                 <%= form_for @game do |f| %>
-                    <%= f.label :score %>
-                    <%= f.number_field :starting_score %>
-                    <%= f.submit %>
+                    <div class="field form-group">
+                        <%= f.label :score %>
+                        <%= f.number_field :starting_score %>
+                    </div>
+                    <div class="action form-group">
+                        <%= f.submit :Submit, class: "btn btn-primary" %>
+                    </div>
                 <% end %>
             </div>
         </div>
