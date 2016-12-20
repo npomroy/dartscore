@@ -1,0 +1,9 @@
+<%= form_for @player, url: game_players_path(game_id: params[:game_id]), :html => { :multipart => true } do |f| %>
+    <div class="field form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="field form-group">
+        <%= f.submit :Submit, class: "btn btn-primary" %>
+    </div>
+<% end %>
