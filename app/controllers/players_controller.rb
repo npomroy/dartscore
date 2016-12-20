@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
       @player.game_id = @game.id
       if @player.save
           flash[:success] = "Player created"
-          redirect_to game_player_path(game_id: @player.game_id, id: @player.id)
+          redirect_to game_player_path(id: @player.id)
       else
           flash[:error] = "Player creation failed"
           render action: :new
@@ -18,6 +18,17 @@ class PlayersController < ApplicationController
    
    def show
       @player = Player.find(params[:id]) 
+   end
+   
+   def update
+      @player = Player.find(params[:id])
+      if @player.update_attributes(player_params)
+          flash[:success] = 'Player updated'
+          redirect_to game_player_path(id: @player.id)
+      else
+          flash[:error] = "Player update failed"
+          render action: :show
+      end
    end
    
    def index
