@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <% @players.each do |player| %>
+                <div class="well">
+                    <h2 class="text-center"><%= player.name %></h2>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
