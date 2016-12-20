@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile
   end
-  resources :games
+  resources :games do
+    resources :players
+  end
   get 'about', to: 'pages#about'
 end
