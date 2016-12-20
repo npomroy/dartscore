@@ -31,6 +31,11 @@ class PlayersController < ApplicationController
       end
    end
    
+   def destroy
+      Player.find(params[:id]).destroy
+      redirect_to root_path
+   end
+   
    def index
       @game = Game.find(params[:game_id])
       @players = Player.where("game_id = ?", @game.id)
