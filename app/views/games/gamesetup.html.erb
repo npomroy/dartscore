@@ -5,6 +5,20 @@
                 <h2 class="text-center">Setup game</h2>
                 <h5>Game goes to: <%= @game.starting_score %></h5>
             </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="text-center">Team 1:</h3>
+                    <%= form_for @team1, url: game_teams_path(game_id: @game.id) do |f| %>
+                        <div class="field form-group">
+                            <%= f.label :name %>
+                            <%= f.text_field :name, class: "form-control" %>
+                        </div>
+                        <div class="action form-group">
+                            <%= f.submit :Submit, class: "btn btn-primary" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
 </div>

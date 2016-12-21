@@ -11,6 +11,11 @@ class GamesController < ApplicationController
    
    def gamesetup
       @game = Game.find(params[:game_id])
+      if @game.team1_id == nil
+         @team1 = Team.new
+      else
+         @team1 = Team.find(@game.team1_id)
+      end
    end
    
    def create
