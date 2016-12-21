@@ -3,7 +3,9 @@
         <div class="col-md-8 col-md-offset-2">
             <% @games.each do |game| %>
                 <div class="well">
-                    <h4><%= game.starting_score %> at: </h4>
+                    <%= link_to game_path(id: game.id) do %>
+                        <h4><%= game.starting_score %> at: </h4>
+                    <% end %>
                 </div>
             <% end %>
         </div>
