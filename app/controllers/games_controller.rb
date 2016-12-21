@@ -4,18 +4,13 @@ class GamesController < ApplicationController
    end
    
    def editplayers
-      @team1 = Player.where("game_id = ? AND on_team1 = ?", params[:game_id], true)
-      @team2 = Player.where("game_id = ? AND on_team1 = ?", params[:game_id], false)
+      @game = Game.find(params[:game_id])
+      @team1 = Team.find(@game.team1_id)
+      @team2 = Team.find(@game.team2_id)
    end
    
    def create
       @game = Game.new( game_params )
-      @game.team1_score = @game.starting_score
-      @game.team2_score = @game.starting_score
-      @game.team1_shooting = 0
-      @game.team2_shooting = 0
-      @game.team1_player_count = 0
-      @game.team2_player_count = 0
       @game.team1_up = true
       @game.playing = false
       if @game.save
@@ -29,8 +24,8 @@ class GamesController < ApplicationController
    
    def show
       @game = Game.find(params[:id]) 
-      @team1 = Player.where("game_id = ? AND on_team1 = ?", @game.id, true)
-      @team2 = Player.where("game_id = ? AND on_team1 = ?", @game.id, false)
+      @team1 = Team.find(@game.team1_id)
+      @team2 = Team.find(@game.team2_id)
    end
    
    def update
@@ -55,8 +50,6 @@ class GamesController < ApplicationController
    
    private
         def game_params
-            params.require(:game).permit(:team1_score, :team1_shooting,
-                                        :team1_player_count, :team2_score, :team2_shooting, 
-                                        :team2_player_count, :team1_up, :starting_score, :playing)
+            params.require(:game).permit(:team1_up, :starting_score, :playing, :team1_id, :team2_id)
         end
 end
