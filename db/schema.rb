@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221115126) do
+ActiveRecord::Schema.define(version: 20161221132029) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "team1_score"
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(version: 20161221115126) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer  "player1_id"
+    t.integer  "player2_id"
+    t.integer  "player3_id"
+    t.integer  "player4_id"
+    t.integer  "player5_id"
+    t.string   "name"
+    t.integer  "score"
+    t.integer  "current_shooter"
+    t.boolean  "is_away"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
