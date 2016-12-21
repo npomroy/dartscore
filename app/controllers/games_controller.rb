@@ -9,13 +9,17 @@ class GamesController < ApplicationController
       @team2 = Team.find(@game.team2_id)
    end
    
+   def gamesetup
+      @game = Game.find(params[:game_id])
+   end
+   
    def create
       @game = Game.new( game_params )
       @game.team1_up = true
       @game.playing = false
       if @game.save
           flash[:success] = "Game started"
-          redirect_to game_path(id: @game.id)
+          redirect_to game_gamesetup_path(game_id: @game.id)
       else
           flash[:error] = "Game creation failed"
           render action: :new
