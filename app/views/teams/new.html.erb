@@ -3,6 +3,15 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="well">
                 <h2 class="text-center">New Team</h2>
+                <%= form_for @team, url: game_teams_path(game_id: params[:game_id]) do |f| %>
+                    <div class="field form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: "form-control" %>
+                    </div>
+                    <div class="action form-group">
+                        <%= f.submit :Submit, class: "btn btn-primary" %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
