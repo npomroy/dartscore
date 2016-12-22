@@ -20,8 +20,8 @@
                             <%= f.submit :Submit, class: "btn btn-primary" %>
                         </div>
                     <% end %>
-                    <% if @game.team1_id != nil && @team1.player1_id == nil %>
-                        <h4>Player 1:</h4>
+                    <% if @game.team1_id != nil %>
+                        <h4>Player 1: <%= @t1p1.name %></h4>
                         <%= form_for @t1p1, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
@@ -31,9 +31,7 @@
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                    <% end %>
-                    <% if @game.team1_id != nil && @team1.player2_id == nil %>
-                        <h4>Player 2:</h4>
+                        <h4>Player 2: <%= @t1p2.name %></h4>
                         <%= form_for @t1p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
@@ -43,9 +41,7 @@
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                    <% end %>
-                    <% if @game.team1_id != nil && @team1.player3_id == nil %>
-                        <h4>Player 3:</h4>
+                        <h4>Player 3: <%= @t1p3.name %></h4>
                         <%= form_for @t1p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
@@ -55,9 +51,7 @@
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                    <% end %>
-                    <% if @game.team1_id != nil && @team1.player4_id == nil %>
-                        <h4>Player 4:</h4>
+                        <h4>Player 4: <%= @t1p4.name %></h4>
                         <%= form_for @t1p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
@@ -67,9 +61,7 @@
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                    <% end %>
-                    <% if @game.team1_id != nil && @team1.player5_id == nil %>
-                        <h4>Player 5:</h4>
+                        <h4>Player 5: <%= @t1p5.name %></h4>
                         <%= form_for @t1p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
