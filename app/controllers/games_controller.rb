@@ -45,6 +45,31 @@ class GamesController < ApplicationController
          @team2 = Team.new
       else
          @team2 = Team.find(@game.team2_id)
+         if @team2.player1_id == nil
+            @t2p1 = Player.new
+         else
+            @t2p1 = Player.find(@team1.player1_id)
+         end
+         if @team2.player2_id == nil
+            @t2p2 = Player.new
+         else
+            @t2p2 = Player.find(@team1.player1_id)
+         end
+         if @team2.player3_id == nil
+            @t2p3 = Player.new
+         else
+            @t2p3 = Player.find(@team1.player1_id)
+         end
+         if @team2.player4_id == nil
+            @t2p4 = Player.new
+         else
+            @t2p4 = Player.find(@team1.player1_id)
+         end
+         if @team2.player5_id == nil
+            @t2p5 = Player.new
+         else
+            @t2p5 = Player.find(@team1.player1_id)
+         end
       end
    end
    
