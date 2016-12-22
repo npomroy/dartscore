@@ -8,12 +8,32 @@ class PlayersController < ApplicationController
    end
    
    def create
-       @game = Game.find(params[:game_id])
+      @game = Game.find(params[:game_id])
       @player = Player.new(player_params)
       @player.game_id = @game.id
       @player.is_away = false
       @player.best_shot = 0
+      puts params[:team1]
+      if params[:team1] == true
+         @team = Team.find(@game.team1_id)
+      else
+         @team = Team.find(@game.team2_id)
+      end
+      #not game -> team
+      # hidden field from form
+      #if 1 team1 if 2 team 2
       if @player.save
+         if @team.player1_id == nil
+            @team.player1_id = @player.id
+         elsif @team.player2_id == nil
+            @team.player2_id = @player.id
+         elsif @team.player3_id == nil
+            @team.player3_id = @player.id
+         elsif @team.player4_id == nil
+            @team.player4_id = @player.id
+         elsif @team.player5_id == nil
+            @team.player5_id = @player.id
+         end
           flash[:success] = "Player created"
           redirect_to game_editplayers_path(game_id: @game.id)
       else
@@ -49,6 +69,6 @@ class PlayersController < ApplicationController
    
    private
         def player_params
-           params.require(:player).permit(:game_id, :name, :is_away, :gamestats, :best_shot) 
+           params.require(:player).permit(:game_id, :name, :is_away, :gamestats, :best_shot, :team1) 
         end
 end
