@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resource :profile
   end
   resources :games do
-    resources :players
-    #check associations
-    resources :teams
+    resources :teams do
+      resources :players
+    end
     get "/gamesetup", to: 'games#gamesetup'
     get "/editplayers", to: 'games#editplayers'
   end
