@@ -5,6 +5,10 @@
                 <h2 class="text-center">New Game</h2>
                 <%= form_for @game do |f| %>
                     <div class="field form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name %>
+                    </div>
+                    <div class="field form-group">
                         <%= f.label :score %>
                         <%= f.number_field :starting_score %>
                     </div>
