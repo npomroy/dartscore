@@ -1,0 +1,11 @@
+add game id to team create
+has to know whether team 1 or 2
+
+make a method to pickup a post request 
+need a custom create method that knows whether team 1 or 2
+
+OR 
+
+make first team created on game team1
+then if a game has a team1 next team created is team2
+tne if game has a team2 disallow any further teams to be created for this game

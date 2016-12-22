@@ -5,9 +5,20 @@ class TeamsController < ApplicationController
    
    def create
       @team = Team.new( team_params )
+      @game = Game.find(params[:game_id])
       if @team.save
+         if @game.team1_id == nil
+            @game.team1_id = @team.id
+            @game.save
+         elsif @game.team2_id == nil
+            @game.team2_id = @team.id
+            @game.save
+         else
+            #game already has teams do not create
+            puts "Team fail"
+         end
           flash[:success] = "Team created"
-          redirect_to game_path(id: params[:game_id])
+          redirect_to game_gamesetup_path(id: params[:game_id])
       else
           flash[:error] = "Team creation failed"
           render action: :new
