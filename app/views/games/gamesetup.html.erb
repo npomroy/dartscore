@@ -32,6 +32,54 @@
                             </div>
                         <% end %>
                     <% end %>
+                    <% if @game.team1_id != nil && @team1.player2_id == nil %>
+                        <h4>Player 2:</h4>
+                        <%= form_for @t1p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                            <div class="field form-group">
+                                <%= f.label :name %>
+                                <%= f.text_field :name %>
+                            </div>
+                            <div class="action form-group">
+                                <%= f.submit :Submit, class: "btn btn-primary" %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                    <% if @game.team1_id != nil && @team1.player3_id == nil %>
+                        <h4>Player 3:</h4>
+                        <%= form_for @t1p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                            <div class="field form-group">
+                                <%= f.label :name %>
+                                <%= f.text_field :name %>
+                            </div>
+                            <div class="action form-group">
+                                <%= f.submit :Submit, class: "btn btn-primary" %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                    <% if @game.team1_id != nil && @team1.player4_id == nil %>
+                        <h4>Player 4:</h4>
+                        <%= form_for @t1p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                            <div class="field form-group">
+                                <%= f.label :name %>
+                                <%= f.text_field :name %>
+                            </div>
+                            <div class="action form-group">
+                                <%= f.submit :Submit, class: "btn btn-primary" %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                    <% if @game.team1_id != nil && @team1.player5_id == nil %>
+                        <h4>Player 5:</h4>
+                        <%= form_for @t1p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                            <div class="field form-group">
+                                <%= f.label :name %>
+                                <%= f.text_field :name %>
+                            </div>
+                            <div class="action form-group">
+                                <%= f.submit :Submit, class: "btn btn-primary" %>
+                            </div>
+                        <% end %>
+                    <% end %>
                 </div>
                 <div class="col-sm-6">
                     <h3 class="text-center">Team 2:</h3>
