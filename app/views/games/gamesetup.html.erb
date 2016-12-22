@@ -19,7 +19,7 @@
                     <% end %>
                     <% if @game.team1_id != nil && @team1.player1_id == nil %>
                         <h4>Player 1:</h4>
-                        <%= form_for @t1p1 do |f| %>
+                        <%= form_for @t1p1, url: game_players_path(game_id: @game.id) do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
