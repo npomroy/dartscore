@@ -12,3 +12,5 @@ tne if game has a team2 disallow any further teams to be created for this game
 
 switch game team player associations
 or check params.require to permit team1 without adding to player
+
+team will not save

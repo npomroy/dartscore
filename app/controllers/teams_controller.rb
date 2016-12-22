@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
    def create
       @team = Team.new( team_params )
       @game = Game.find(params[:game_id])
+      @team.game_id = @game.id
       if @game.team2_id == nil
          if @team.save
             if @game.team1_id == nil
@@ -21,6 +22,7 @@ class TeamsController < ApplicationController
              flash[:error] = "Team creation failed"
              render action: :new
          end
+      else
          flash[:error] = "Game already has two teams"
          redirect_to game_path(id: @game.id)
       end
@@ -48,6 +50,8 @@ class TeamsController < ApplicationController
    
    private
         def team_params
-           params.require(:team).permit(:player1_id, :player2_id, :player3_id, :player4_id, :player5_id, :name, :score, :current_shooter, :is_away) 
+           params.require(:team).permit(:player1_id, :player2_id, :player3_id, 
+                                       :player4_id, :player5_id, :name, :score, 
+                                       :current_shooter, :is_away, :game_id) 
         end
 end
