@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
              redirect_to game_gamesetup_path(id: params[:game_id])
          else
              flash[:error] = "Team creation failed"
-             render action: :new
+             redirect_to game_gamesetup_path(id: params[:game_id])
          end
       else
          flash[:error] = "Game already has two teams"
