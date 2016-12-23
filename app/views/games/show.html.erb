@@ -50,6 +50,11 @@
                                 <%= player.name %>
                             <% end %>
                         <% end %></h4>
+                        
+                        <!--Take shot-->
+                        <%= form_tag({controller: "games", action: "takeshot"}, method: "get" do %>
+                            <%= number_field_tag
+                        <% end %>
                     <% else %>
                         <h4>Now shooting for Team 2: <% @team2players.each_with_index do |player, index| %>
                             <% if index == @team2.current_shooter %>

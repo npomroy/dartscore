@@ -15,63 +15,13 @@ class GamesController < ApplicationController
          @team1 = Team.new
       else
          @team1 = Team.find(@game.team1_id)
-         i = @team1.player_ids.length
-         if i < 1
-            @t1p1 = Player.new
-         else
-            @t1p1 = Player.find(@team1.player_ids[i-1])
-            if i < 2
-               @t1p2 = Player.new
-            else
-               @t1p2 = Player.find(@team1.player_ids[i-1])
-               if i < 3
-                  @t1p3 = Player.new
-               else
-                  @t1p3 = Player.find(@team1.player_ids[i-1])
-                  if i < 4
-                     @t1p4 = Player.new
-                  else
-                     @t1p4 = Player.find(@team1.player_ids[i-1])
-                     if i < 5
-                        @t1p5 = Player.new
-                     else
-                        @t1p5 = Player.find(@team1.player_ids[i-1])
-                     end
-                  end
-               end
-            end
-         end
+         @team1players = Player.where("team_id = ?", @team1.id)
       end
       if @game.team2_id == nil
          @team2 = Team.new
       else
          @team2 = Team.find(@game.team2_id)
-         i = @team2.player_ids.length
-         if i < 1
-            @t2p1 = Player.new
-         else
-            @t2p1 = Player.find(@team2.player_ids[i-1])
-            if i < 2
-               @t2p2 = Player.new
-            else
-               @t2p2 = Player.find(@team2.player_ids[i-1])
-               if i < 3
-                  @t2p3 = Player.new
-               else
-                  @t2p3 = Player.find(@team2.player_ids[i-1])
-                  if i < 4
-                     @t2p4 = Player.new
-                  else
-                     @t2p4 = Player.find(@team2.player_ids[i-1])
-                     if i < 5
-                        @t2p5 = Player.new
-                     else
-                        @t2p5 = Player.find(@team2.player_ids[i-1])
-                     end
-                  end
-               end
-            end
-         end
+         @team2players = Player.where("team_id = ?", @team2.id)
       end
    end
    
