@@ -90,6 +90,8 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id]) 
       @team1 = Team.find(@game.team1_id)
       @team2 = Team.find(@game.team2_id)
+      @team1players = Player.where("team_id = ?", @team1.id)
+      @team2players = Player.where("team_id = ?", @team2.id)
    end
    
    def update

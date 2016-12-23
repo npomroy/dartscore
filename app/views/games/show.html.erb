@@ -9,8 +9,8 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h5>Team 1:</h5>
-                        <% @team1.each_with_index do |player, index| %>
-                            <% if index == @game.team1_shooting %>
+                        <% @team1players.each_with_index do |player, index| %>
+                            <% if index == @team1.current_shooter%>
                                 <h5>Up next for team:</h5>
                             <% end %>
                             <div class="well">
@@ -20,8 +20,8 @@
                     </div>
                     <div class="col-sm-6">
                         <h5>Team 2:</h5>
-                        <% @team2.each_with_index do |player, index| %>
-                            <% if index == @game.team2_shooting %>
+                        <% @team2players.each_with_index do |player, index| %>
+                            <% if index == @team2.current_shooter %>
                                 <h5>Up next for team:</h5>
                             <% end %>
                             <div class="well">
@@ -38,10 +38,10 @@
                         <%= f.submit :StartGame %>
                     <% end %>
                 <% else %>
-                    <h1>Team 1: <%= @game.team1_score %> ------- Score ------- Team 2: <%= @game.team2_score %></h1>
+                    <h1>Team 1: <%= @team1.score %> ------- Score ------- Team 2: <%= @team2.score %></h1>
                     <% if @game.team1_up %>
-                        <h4>Now shooting for Team 1: <% @team1.each_with_index do |player, index| %>
-                            <% if index == @game.team1_shooting %>
+                        <h4>Now shooting for Team 1: <% @team1players.each_with_index do |player, index| %>
+                            <% if index == @team1.current_shooter %>
                                 <%= player.name %>
                             <% end %>
                         <% end %></h4>
