@@ -1,4 +1,4 @@
-<%= form_for @player, url: game_players_path(game_id: params[:game_id]), :html => { :multipart => true } do |f| %>
+<%= form_for @player, url: game_team_players_path(game_id: params[:game_id], team_id: params[:team_id]), :html => { :multipart => true } do |f| %>
     <div class="field form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control" %>
