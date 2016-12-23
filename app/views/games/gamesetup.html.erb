@@ -66,46 +66,41 @@
               </div>
           <% end %>
           <% if @game.team2_id != nil %>
+           <% if @t2p1.id != nil %>
             <h4>Player 1: <%= @t2p1.name %></h4>
-            <%= form_for @t2p1, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p1.id), :html => { :multipart => true } do |f| %>
-                <div class="field form-group">
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-                    <%= f.submit :Submit, class: "btn btn-primary" %>
-                </div>
-            <% end %>
-            <h4>Player 2: <%= @t2p2.name %></h4>
-            <%= form_for @t2p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p2.id), :html => { :multipart => true } do |f| %>
-                <div class="field form-group">
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-                    <%= f.submit :Submit, class: "btn btn-primary" %>
-                </div>
-            <% end %>
-            <h4>Player 3: <%= @t2p3.name %></h4>
-            <%= form_for @t2p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p3.id), :html => { :multipart => true } do |f| %>
-                <div class="field form-group">
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-                    <%= f.submit :Submit, class: "btn btn-primary" %>
-                </div>
-            <% end %>
-            <h4>Player 4: <%= @t2p4.name %></h4>
-            <%= form_for @t2p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p4.id), :html => { :multipart => true } do |f| %>
-                <div class="field form-group">
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-                    <%= f.submit :Submit, class: "btn btn-primary" %>
-                </div>
-            <% end %>
-            <h4>Player 5: <%= @t2p5.name %></h4>
-            <%= form_for @t2p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p5.id), :html => { :multipart => true } do |f| %>
-                <div class="field form-group">
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-                    <%= f.submit :Submit, class: "btn btn-primary" %>
-                </div>
-            <% end %>
+                  <%= link_to "Edit Player", edit_game_team_player_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p1.id), class: "btn btn-primary" %>
+                  <% if @t2p2.id != nil %>
+                      <h4>Player 2: <%= @t2p2.name %></h4>
+                      <%= link_to "Edit Player", edit_game_team_player_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p2.id), class: "btn btn-primary" %>
+                      <% if @t2p3.id != nil %>
+                          <h4>Player 3: <%= @t2p3.name %></h4>
+                          <%= link_to "Edit Player", edit_game_team_player_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p3.id), class: "btn btn-primary" %>
+                          <% if @t2p4.id != nil %>
+                              <h4>Player 4: <%= @t2p4.name %></h4>
+                              <%= link_to "Edit Player", edit_game_team_player_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p4.id), class: "btn btn-primary" %>
+                              <% if @t2p5.id != nil %>
+                                  <h4>Player 5: <%= @t2p5.name %></h4>
+                                  <%= link_to "Edit Player", edit_game_team_player_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p5.id), class: "btn btn-primary" %>
+                              <% else %>
+                                  <br/>
+                                  <%= link_to "Add Player", new_game_team_player_path(game_id: @game.id, team_id: @game.team2_id), class: "btn btn-primary" %>
+                              <% end %>
+                          <% else %>
+                              <br/>
+                              <%= link_to "Add Player", new_game_team_player_path(game_id: @game.id, team_id: @game.team2_id), class: "btn btn-primary" %>
+                          <% end %>
+                      <% else %>
+                          <br/>
+                          <%= link_to "Add Player", new_game_team_player_path(game_id: @game.id, team_id: @game.team2_id), class: "btn btn-primary" %>
+                      <% end %>
+                  <% else %>
+                      <br/>
+                      <%= link_to "Add Player", new_game_team_player_path(game_id: @game.id, team_id: @game.team2_id), class: "btn btn-primary" %>
+                  <% end %>
+              <% else %>
+                  <br/>
+                  <%= link_to "Add Player", new_game_team_player_path(game_id: @game.id, team_id: @game.team2_id), class: "btn btn-primary" %>
+              <% end %>
           <% end %>
         </div>
       </div>
