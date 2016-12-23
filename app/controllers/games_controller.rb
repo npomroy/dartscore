@@ -68,6 +68,7 @@ class GamesController < ApplicationController
    
    
    def takeshot
+      # currently unused
       @game = Game.find(params[:game_id])
       if @game.team1_up
          @team = Team.find(@game.team1_id)
