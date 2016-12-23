@@ -46,30 +46,31 @@ class GamesController < ApplicationController
          @team2 = Team.new
       else
          @team2 = Team.find(@game.team2_id)
-         if @team2.player1_id == nil
+         i = @team2.player_ids.length
+         if i < 1
             @t2p1 = Player.new
          else
-            @t2p1 = Player.find(@team2.player1_id)
-         end
-         if @team2.player2_id == nil
-            @t2p2 = Player.new
-         else
-            @t2p2 = Player.find(@team2.player2_id)
-         end
-         if @team2.player3_id == nil
-            @t2p3 = Player.new
-         else
-            @t2p3 = Player.find(@team2.player3_id)
-         end
-         if @team2.player4_id == nil
-            @t2p4 = Player.new
-         else
-            @t2p4 = Player.find(@team2.player4_id)
-         end
-         if @team2.player5_id == nil
-            @t2p5 = Player.new
-         else
-            @t2p5 = Player.find(@team2.player5_id)
+            @t2p1 = Player.find(@team2.player_ids[i-1])
+            if i < 2
+               @t2p2 = Player.new
+            else
+               @t2p2 = Player.find(@team2.player_ids[i-1])
+               if i < 3
+                  @t2p3 = Player.new
+               else
+                  @t2p3 = Player.find(@team2.player_ids[i-1])
+                  if i < 4
+                     @t2p4 = Player.new
+                  else
+                     @t2p4 = Player.find(@team2.player_ids[i-1])
+                     if i < 5
+                        @t2p5 = Player.new
+                     else
+                        @t2p5 = Player.find(@team2.player_ids[i-1])
+                     end
+                  end
+               end
+            end
          end
       end
    end
@@ -117,12 +118,13 @@ class GamesController < ApplicationController
    
    
    def takeshot
-      @game = params[:game_id]
+      @game = Game.find(params[:game_id])
       if @game.team1_up
-         @team = @game.team1_id
+         @team = Team.find(@game.team1_id)
       else
          @team = @game.team2_id
       end
+      @player = Player.find(@team.player_ids[@team.current_shooter])
       
    end
    
