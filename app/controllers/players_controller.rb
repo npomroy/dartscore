@@ -44,9 +44,10 @@ class PlayersController < ApplicationController
    
    def update
       @player = Player.find(params[:id])
+      @team = Team.find(@player.team_id)
       if @player.update_attributes(player_params)
           flash[:success] = 'Player updated'
-          redirect_to game_player_path(id: @player.id)
+          redirect_to game_gamesetup_path(game_id: @team.game_id)
       else
           flash[:error] = "Player update failed"
           render action: :show

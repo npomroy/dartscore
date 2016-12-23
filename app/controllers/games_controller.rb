@@ -23,22 +23,22 @@ class GamesController < ApplicationController
          if @team1.player2_id == nil
             @t1p2 = Player.new
          else
-            @t1p2 = Player.find(@team1.player1_id)
+            @t1p2 = Player.find(@team1.player2_id)
          end
          if @team1.player3_id == nil
             @t1p3 = Player.new
          else
-            @t1p3 = Player.find(@team1.player1_id)
+            @t1p3 = Player.find(@team1.player3_id)
          end
          if @team1.player4_id == nil
             @t1p4 = Player.new
          else
-            @t1p4 = Player.find(@team1.player1_id)
+            @t1p4 = Player.find(@team1.player4_id)
          end
          if @team1.player5_id == nil
             @t1p5 = Player.new
          else
-            @t1p5 = Player.find(@team1.player1_id)
+            @t1p5 = Player.find(@team1.player5_id)
          end
       end
       if @game.team2_id == nil
@@ -48,27 +48,27 @@ class GamesController < ApplicationController
          if @team2.player1_id == nil
             @t2p1 = Player.new
          else
-            @t2p1 = Player.find(@team1.player1_id)
+            @t2p1 = Player.find(@team2.player1_id)
          end
          if @team2.player2_id == nil
             @t2p2 = Player.new
          else
-            @t2p2 = Player.find(@team1.player1_id)
+            @t2p2 = Player.find(@team2.player2_id)
          end
          if @team2.player3_id == nil
             @t2p3 = Player.new
          else
-            @t2p3 = Player.find(@team1.player1_id)
+            @t2p3 = Player.find(@team2.player3_id)
          end
          if @team2.player4_id == nil
             @t2p4 = Player.new
          else
-            @t2p4 = Player.find(@team1.player1_id)
+            @t2p4 = Player.find(@team2.player4_id)
          end
          if @team2.player5_id == nil
             @t2p5 = Player.new
          else
-            @t2p5 = Player.find(@team1.player1_id)
+            @t2p5 = Player.find(@team2.player5_id)
          end
       end
    end

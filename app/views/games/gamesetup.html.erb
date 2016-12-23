@@ -20,7 +20,7 @@
                     <% end %>
                     <% if @game.team1_id != nil %>
                         <h4>Player 1: <%= @t1p1.name %></h4>
-                        <%= form_for @t1p1, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <%= form_for @t1p1, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id if @t1p1.id? , id: @t1p1.id end ), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
@@ -28,7 +28,7 @@
                             </div>
                         <% end %>
                         <h4>Player 2: <%= @t1p2.name %></h4>
-                        <%= form_for @t1p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <%= form_for @t1p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id, id: @t1p2.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
@@ -36,7 +36,7 @@
                             </div>
                         <% end %>
                         <h4>Player 3: <%= @t1p3.name %></h4>
-                        <%= form_for @t1p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <%= form_for @t1p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id, id: @t1p3.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
@@ -44,7 +44,7 @@
                             </div>
                         <% end %>
                         <h4>Player 4: <%= @t1p4.name %></h4>
-                        <%= form_for @t1p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <%= form_for @t1p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id, id: @t1p4.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
@@ -52,7 +52,7 @@
                             </div>
                         <% end %>
                         <h4>Player 5: <%= @t1p5.name %></h4>
-                        <%= form_for @t1p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <%= form_for @t1p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id, id: @t1p5.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
@@ -71,40 +71,40 @@
                         </div>
                     <% end %>
                     <% if @game.team2_id != nil %>
-                        <h4>Player 1: <%= @t1p1.name %></h4>
-                        <%= form_for @t2p1, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <h4>Player 1: <%= @t2p1.name %></h4>
+                        <%= form_for @t2p1, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p1.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                        <h4>Player 2: <%= @t1p2.name %></h4>
-                        <%= form_for @t2p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <h4>Player 2: <%= @t2p2.name %></h4>
+                        <%= form_for @t2p2, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p2.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                        <h4>Player 3: <%= @t1p3.name %></h4>
-                        <%= form_for @t2p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <h4>Player 3: <%= @t2p3.name %></h4>
+                        <%= form_for @t2p3, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p3.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                        <h4>Player 4: <%= @t1p4.name %></h4>
-                        <%= form_for @t2p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <h4>Player 4: <%= @t2p4.name %></h4>
+                        <%= form_for @t2p4, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p4.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
                                 <%= f.submit :Submit, class: "btn btn-primary" %>
                             </div>
                         <% end %>
-                        <h4>Player 5: <%= @t1p5.name %></h4>
-                        <%= form_for @t2p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team1_id) do |f| %>
+                        <h4>Player 5: <%= @t2p5.name %></h4>
+                        <%= form_for @t2p5, url: game_team_players_path(game_id: @game.id, team_id: @game.team2_id, id: @t2p5.id), :html => { :multipart => true } do |f| %>
                             <div class="field form-group">
                                 <%= f.label :name %>
                                 <%= f.text_field :name %>
