@@ -15,30 +15,31 @@ class GamesController < ApplicationController
          @team1 = Team.new
       else
          @team1 = Team.find(@game.team1_id)
-         if @team1.player1_id == nil
+         i = @team1.player_ids.length
+         if i < 1
             @t1p1 = Player.new
          else
-            @t1p1 = Player.find(@team1.player1_id)
-         end
-         if @team1.player2_id == nil
-            @t1p2 = Player.new
-         else
-            @t1p2 = Player.find(@team1.player2_id)
-         end
-         if @team1.player3_id == nil
-            @t1p3 = Player.new
-         else
-            @t1p3 = Player.find(@team1.player3_id)
-         end
-         if @team1.player4_id == nil
-            @t1p4 = Player.new
-         else
-            @t1p4 = Player.find(@team1.player4_id)
-         end
-         if @team1.player5_id == nil
-            @t1p5 = Player.new
-         else
-            @t1p5 = Player.find(@team1.player5_id)
+            @t1p1 = Player.find(@team1.player_ids[i-1])
+            if i < 2
+               @t1p2 = Player.new
+            else
+               @t1p2 = Player.find(@team1.player_ids[i-1])
+               if i < 3
+                  @t1p3 = Player.new
+               else
+                  @t1p3 = Player.find(@team1.player_ids[i-1])
+                  if i < 4
+                     @t1p4 = Player.new
+                  else
+                     @t1p4 = Player.find(@team1.player_ids[i-1])
+                     if i < 5
+                        @t1p5 = Player.new
+                     else
+                        @t1p5 = Player.find(@team1.player_ids[i-1])
+                     end
+                  end
+               end
+            end
          end
       end
       if @game.team2_id == nil
@@ -112,6 +113,17 @@ class GamesController < ApplicationController
    
    def index
       @games = Game.all 
+   end
+   
+   
+   def takeshot
+      @game = params[:game_id]
+      if @game.team1_up
+         @team = @game.team1_id
+      else
+         @team = @game.team2_id
+      end
+      
    end
    
    private
