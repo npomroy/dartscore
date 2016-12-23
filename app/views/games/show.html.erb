@@ -45,8 +45,22 @@
                                 <%= player.name %>
                             <% end %>
                         <% end %></h4>
+                        <h4>Next shooter for Team 2: <% @team2players.each_with_index do |player, index| %>
+                            <% if index == @team2.current_shooter %>
+                                <%= player.name %>
+                            <% end %>
+                        <% end %></h4>
                     <% else %>
-                        <h4>Now shooting: Team 2</h4>
+                        <h4>Now shooting for Team 2: <% @team2players.each_with_index do |player, index| %>
+                            <% if index == @team2.current_shooter %>
+                                <%= player.name %>
+                            <% end %>
+                        <% end %></h4>
+                        <h4>Next shooter for Team 1: <% @team1players.each_with_index do |player, index| %>
+                            <% if index == @team1.current_shooter %>
+                                <%= player.name %>
+                            <% end %>
+                        <% end %></h4>
                     <% end %>    
                 <% end %>
             </div>
