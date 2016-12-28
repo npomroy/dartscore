@@ -44,16 +44,14 @@
                     <h1>Team 1: <%= @team1.score %> ------- Score ------- Team 2: <%= @team2.score %></h1>
                     <% if @game.team1_up %>
                         <h4>Now shooting for Team 1: <%= @team1shooter.name %></h4>
+                        <%= link_to "Take Shot", new_shot_path(game_id: @game.id, player_id: @team1shooter.id, score: @team1.score), class: "btn btn-primary" %>
                         <h4>Next shooter for Team 2: <%= @team2shooter.name %></h4>
                     <% else %>
                         <h4>Now shooting for Team 2: <%= @team2shooter.name %></h4>
+                        <%= link_to "Take Shot", new_shot_path(game_id: @game.id, player_id: @team2shooter.id, score: @team2.score), class: "btn btn-primary" %>
                         <h4>Next shooter for Team 1: <%= @team1shooter.name %></h4>
                     <% end %>  
                     
-                    <!--Take shot-->
-                    <%= link_to "Take Shot", new_shot_path(game_id: @game.id), class: "btn btn-primary" %>
-                    <!--remove-->
-                    <%= @team1shooter.inspect %>
                 <% end %>
             </div>
         </div>
