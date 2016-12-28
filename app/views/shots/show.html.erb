@@ -3,6 +3,7 @@
         <div class="col-md-4">
             <div class="well">
                 <h4>Take Shot</h4>
+                <%= @shot.inspect %>
             </div>
         </div>
         <div class="col-md-8">
@@ -12,6 +13,3 @@
         </div>
     </div>
 </div>
-
-<%= link_to 'Edit', edit_shot_path(@shot) %> |
-<%= link_to 'Back', shots_path %>

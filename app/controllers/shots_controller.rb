@@ -69,6 +69,7 @@ class ShotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shot_params
-      params.fetch(:shot, {})
+      params.require(:shot).permit(:game_id, :player_id, :darts, :start_score)
+      # params.fetch(:shot, {})
     end
 end

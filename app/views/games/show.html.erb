@@ -45,9 +45,9 @@
                     <% if @game.team1_up %>
                         <h4>Now shooting for Team 1: <%= @team1shooter.name %></h4>
                         <%= form_for @shot do |f| %>
-                            <%= hidden_field :game_id, :value => @game.id %>
-                            <%= hidden_field :player_id, :value => @team1shooter.id %>
-                            <%= hidden_field :start_score, :value => @team1.score %>
+                            <%= f.hidden_field :game_id, :value => @game.id %>
+                            <%= f.hidden_field :player_id, :value => @team1shooter.id %>
+                            <%= f.hidden_field :start_score, :value => @team1.score %>
                             <%= f.submit :Team1Shot %>
                         <% end %>
                         <h4>Next shooter for Team 2: <%= @team2shooter.name %></h4>
