@@ -45,6 +45,7 @@ class GamesController < ApplicationController
       @team1players = Player.where("team_id = ?", @team1.id)
       @team2players = Player.where("team_id = ?", @team2.id)
       @team1shooter = @team1players[@team1.current_shooter]
+      @team2shooter = @team2players[@team2.current_shooter]
    end
    
    def update
