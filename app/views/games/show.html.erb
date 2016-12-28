@@ -68,6 +68,8 @@
                     
                     <!--Take shot-->
                     <%= link_to "Take Shot", new_shot_path(game_id: @game.id), class: "btn btn-primary" %>
+                    <!--remove-->
+                    <%= @team1shooter.inspect %>
                 <% end %>
             </div>
         </div>
