@@ -48,7 +48,7 @@
                             <%= hidden_field :game_id, :value => @game.id %>
                             <%= hidden_field :player_id, :value => @team1shooter.id %>
                             <%= hidden_field :start_score, :value => @team1.score %>
-                            <%= f.submit :Submit %>
+                            <%= f.submit :Team1Shot %>
                         <% end %>
                         <h4>Next shooter for Team 2: <%= @team2shooter.name %></h4>
                     <% else %>
@@ -57,7 +57,7 @@
                             <%= hidden_field :game_id, :value => @game.id %>
                             <%= hidden_field :player_id, :value => @team2shooter.id %>
                             <%= hidden_field :start_score, :value => @team2.score %>
-                            <%= f.submit :Submit %>
+                            <%= f.submit :Team2Shot %>
                         <% end %>
                         <h4>Next shooter for Team 1: <%= @team1shooter.name %></h4>
                     <% end %>  
